@@ -1,0 +1,26 @@
+######################################
+How to change HTTP to SSH remote URL.#
+######################################
+# To check current GIT URL
+git remote -v
+
+# Rename Origin to o1
+git rename origin o1
+
+# Git add remote SSH URL
+git remote add o1 git@gitlab.wddemo.net:rahul.netawat/my-own-stuffs.git
+
+# Git remove origin git url
+git remote remove origin
+
+# Git remote rename o1 to Origin
+git remote rename o1 origin
+
+# Check current URL
+git remote -v
+
+# Command to change remote URL for HTTP to SSH
+git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
+
+# Git error, "unable to update local ref" when doing a pull in SourceTree, run below command.
+git gc --prune=now
