@@ -1,0 +1,8 @@
+# Please replace domain name first.
+#
+
+1. # We create the SSL certificate.
+   ./certbot-auto certonly --standalone -d my-domain.com
+
+2. # Certbot Renew - Manual
+   ./certbot-auto certonly --manual -d my-domain.com
