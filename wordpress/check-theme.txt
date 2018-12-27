@@ -1,4 +1,6 @@
 # Below SQL Query to check current theme from WordPress DB.
+# Reference Link.
+# https://docs.appthemes.com/tutorials/how-to-change-wordpress-themes-directly-from-the-database/
 
 SELECT *
 FROM wp_options
