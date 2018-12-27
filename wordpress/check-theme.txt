@@ -1,0 +1,7 @@
+# Below SQL Query to check current theme from WordPress DB.
+
+SELECT *
+FROM wp_options
+WHERE option_name = 'template'
+OR option_name = 'stylesheet'
+OR option_name = 'current_theme';
