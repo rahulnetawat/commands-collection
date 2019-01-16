@@ -1,0 +1,2 @@
+# Revert last GIT commit.
+git revert HEAD --no-edit
