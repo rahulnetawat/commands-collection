@@ -10,3 +10,6 @@
 3. # Delete Certificate of required domain.
    sudo certbot delete --cert-name domain.com
    ./certbot-auto delete --cert-name domain.com
+
+4. #Generate certificate with preferred challenge.
+   certbot certonly --manual -d domain.com --preferred-challenges http
