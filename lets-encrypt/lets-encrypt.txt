@@ -6,3 +6,7 @@
 
 2. # Certbot Renew - Manual
    ./certbot-auto certonly --manual -d my-domain.com
+
+3. # Delete Certificate of required domain.
+   sudo certbot delete --cert-name domain.com
+   ./certbot-auto delete --cert-name domain.com
