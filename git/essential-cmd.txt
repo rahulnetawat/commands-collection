@@ -1,2 +1,77 @@
 # Revert last GIT commit.
-git revert HEAD --no-edit
+$ git revert HEAD --no-edit
+
+# Enables helpful colorization of command line output
+$ git config --global color.ui auto
+
+###################
+## REVIEW HISTORY##
+###################
+- Browse and inspect the evolution of project files
+
+# Lists version history for a file, including renames
+$ git log --follow [file]
+
+# Shows content differences between two branches
+$ git diff [first-branch]...[second-branch]
+
+# Outputs metadata and content changes of the specified commit
+$ git show [commit]
+
+########################
+## REFACTOR FILENAMES ##
+########################
+- Relocate and remove versioned files
+
+# Deletes the file from the working directory and stages the deletion
+$ git rm [file]
+
+# Removes the file from version control but preserves the file locally
+$ git rm --cached [file]
+
+# Changes the file name and prepares it for commit
+$ git mv [file-original] [file-renamed]
+
+#####################
+##SUPPRESS TRACKING##
+#####################
+- Exclude temporary files and paths
+
+# A text file named .gitignore suppresses accidental versioning of files and paths matching the specified patterns
+*.log
+build/
+temp-*
+
+# Lists all ignored files in this project
+$ git ls-files --other --ignored --exclude-standard
+
+####################
+## SAVE FRAGMENTS ##
+####################
+- Shelve and restore incomplete changes
+
+# Temporarily stores all modified tracked files
+$ git stash
+
+# Restores the most recently stashed files
+$ git stash pop
+
+# Lists all stashed changesets
+$ git stash list
+
+# Discards the most recently stashed changeset
+$ git stash drop
+
+##################
+## REDO COMMITS ##
+##################
+- Erase mistakes and craft replacement history
+
+# Undoes all commits after [commit] , preserving changes locally
+$ git reset [commit]
+
+# Discards all history and changes back to the specified commit
+$ git reset --hard [commit]
+
+# Remove file from working directory and add deletion to staging area.
+$ git rm [file]
