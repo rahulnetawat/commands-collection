@@ -1,0 +1,17 @@
+# To check File/Folder permission in Octal Form
+$ stat -c '%A %a %n' <file-name/folder-name>
+
+## Example Output:
+rahul@rahul:~$ stat -c '%A %a %n' asdf.jpg 
+-rw------- 600 asdf.jpg
+
+rahul@rahul:~$ stat -c '%A %a %n' Pictures/
+drwxr-xr-x 755 Pictures/
+
+=============================================================
+# Capture SMTP / POP3 Email 
+sudo tcpdump -nn -l port 25 | grep -i 'MAIL FROM\|RCPT TO'
+
+=============================================================
+# Find all file extension in current dir. 
+find . -type f | perl -ne 'print $1 if m/\.([^.\/]+)$/' | sort -u
