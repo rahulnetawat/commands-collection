@@ -15,3 +15,15 @@ sudo tcpdump -nn -l port 25 | grep -i 'MAIL FROM\|RCPT TO'
 =============================================================
 # Find all file extension in current dir. 
 find . -type f | perl -ne 'print $1 if m/\.([^.\/]+)$/' | sort -u
+
+==================================================================
+# 32 bits or 64 bits?
+getconf LONG_BIT
+
+==================================================================
+# Simulate Typing
+echo "You can simulate on-screen"| pv -qL 10
+
+==================================================================
+# Quickly rename a file.
+mv filename.{old,new}

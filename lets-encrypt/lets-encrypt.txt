@@ -2,14 +2,17 @@
 #
 
 1. # We create the SSL certificate.
-   ./certbot-auto certonly --standalone -d my-domain.com
+[bash]$ ./certbot-auto certonly --standalone -d my-domain.com
 
 2. # Certbot Renew - Manual
-   ./certbot-auto certonly --manual -d my-domain.com
+[bash]$ ./certbot-auto certonly --manual -d my-domain.com
 
 3. # Delete Certificate of required domain.
-   sudo certbot delete --cert-name domain.com
-   ./certbot-auto delete --cert-name domain.com
+[bash]$ sudo certbot delete --cert-name domain.com
+[bash]$ ./certbot-auto delete --cert-name domain.com
 
 4. #Generate certificate with preferred challenge.
-   certbot certonly --manual -d domain.com --preferred-challenges http
+[bash]$ certbot certonly --manual -d domain.com --preferred-challenges http
+
+5. #Renew Let's Encrypt certificate with TXT record.
+[bash]$ ./certbot-auto certonly --agree-tos --renew-by-default --manual --preferred-challenges=dns -d my-domain.com
