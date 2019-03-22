@@ -27,3 +27,27 @@ echo "You can simulate on-screen"| pv -qL 10
 ==================================================================
 # Quickly rename a file.
 mv filename.{old,new}
+
+==================================================================
+# Check SSL certicate expiry via commandline.
+nmap -p 443 --script ssl-cert my-domain.com
+
+==================================================================
+# The following command looks for all the files under /etc directory with mail in the filename.
+find /etc -name "*mail*"
+
+==================================================================
+# The following command will list all the files that were modified more than 60 days ago under the current directory.
+find . -mtime +60
+
+==================================================================
+# The following command will list all the files that were modified in the last two days under the current directory.
+find . -mtime -2
+
+==================================================================
+# To delete all the archive files with extension *.tar.gz
+find / -type f -name *.tar.gz -exec ls -l {} \;
+
+==================================================================
+# Find out all the jpg images and archive it.
+find /home/rahul/Pictures/ -name *.jpg -type f -print | xargs tar -cvzf images.tar.gz
