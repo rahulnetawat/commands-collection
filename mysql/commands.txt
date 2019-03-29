@@ -1,0 +1,3 @@
+# Command to check User with Hosts on Mysql Server.
+- select user,host from mysql.user;
+- GRANT ALL PRIVILEGES ON database_name.* TO 'username'@'localhost';

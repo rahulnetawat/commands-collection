@@ -1,0 +1,5 @@
+# Command to check binary logs.
+mysql> show binary logs;
+
+# Delete previous binary logs.(Here only mysql-bin.000020 log is not going to Purge)
+mysql> PURGE BINARY LOGS TO 'mysql-bin.000020'
