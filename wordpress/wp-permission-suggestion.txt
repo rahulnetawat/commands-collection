@@ -1,0 +1,81 @@
+# WordPress Recommended File & Folder Permission
+
+Below rules are recommended for a default wordpress site:
+
+For folders inside wp-content, set 0755 permissions:
+
+chmod -R 0755 plugins
+chmod -R 0755 uploads
+chmod -R 0755 upgrade
+
+# The default permission scheme should be:
+    Folders - 755
+    Files - 644
+
+## Changing file permissions Via command line you can run the following commands to change permissions recursively:
+
+# For Directories:
+command -> find /path/to/your/wordpress/install/ -type d -exec chmod 755 {} \;
+
+# For Files:
+command -> find /path/to/your/wordpress/install/ -type f -exec chmod 644 {} \;
+
+#================================================================================#
+
+# WP-Admin
+- Adding server-side password protection (such as BasicAuth) to /wp-admin/ adds a second layer of protection around your blog's admin area, the login screen, and your files. 
+
+Note: This prevents normal site visitors from accessing /wp-admin/admin-ajax.php. 
+
+#================================================================================#
+
+# WP-Includes
+A second layer of protection can be added where scripts are generally not intended to be accessed by any user. One way to do that is to block those scripts using mod_rewrite in the .htaccess file. Note: to ensure the code below is not overwritten by WordPress, place it outside the # BEGIN WordPress and # END WordPress tags in the .htaccess file. WordPress can overwrite anything between these tags. 
+
+# Block the include-only files.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^wp-admin/includes/ - [F,L]
+RewriteRule !^wp-includes/ - [S=3]
+RewriteRule ^wp-includes/[^/]+\.php$ - [F,L]
+RewriteRule ^wp-includes/js/tinymce/langs/.+\.php - [F,L]
+RewriteRule ^wp-includes/theme-compat/ - [F,L]
+</IfModule>
+# BEGIN WordPress
+
+Note: This won't work well on Multisite, as RewriteRule ^wp-includes/[^/]+\.php$ - [F,L] would prevent the ms-files.php file from generating images. Omitting that line will allow the code to work.
+#================================================================================#
+
+# WP-Content/Uploads
+
+The uploads directory is the one directory that will almost need to be writable by the web server. It's where all files are uploaded remotely. You want to prevent PHP execution in this directory, you can do this by placing an .htaccess at the root of /UPLOADS using: 
+
+# Kill PHP Execution
+<Files ~ "\.ph(?:p[345]?|t|tml)$">
+   deny from all
+</Files>
+
+Note: This can break your theme if it requires PHP execution in UPLOADS. If you apply it and the site breaks, remove it and the site will reappear. 
+
+#================================================================================#
+
+# WP-Config.php
+
+If you use a server with .htaccess, you can put this in that file (at the very top) to deny access to anyone surfing for it: 
+
+<files wp-config.php>
+   order allow,deny
+   deny from all
+</files>
+
+#================================================================================#
+
+# Disable File Editing
+
+It is recommended to disable file editing within the WordPress dashboard. WordPress has a constant that disabled this editing via the wp-config.php file. Append the following two lines to the middle of your wp-config file, with all the other defines. The require_once line should always remain last in the file: 
+
+## Disable Editing in Dashboard
+define('DISALLOW_FILE_EDIT', true);
+
+#================================================================================#
