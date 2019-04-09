@@ -23,14 +23,19 @@ command -> find /path/to/your/wordpress/install/ -type f -exec chmod 644 {} \;
 #================================================================================#
 # WP-Admin
 
-- Adding server-side password protection (such as BasicAuth) to /wp-admin/ adds a second layer of protection around your blog's admin area, the login screen, and your files. 
+- Adding server-side password protection (such as BasicAuth) to /wp-admin/ 
+adds a second layer of protection around your blog's admin area, the login screen, and your files. 
 
 Note: This prevents normal site visitors from accessing /wp-admin/admin-ajax.php. 
 
 #================================================================================#
 # WP-Includes
 
-A second layer of protection can be added where scripts are generally not intended to be accessed by any user. One way to do that is to block those scripts using mod_rewrite in the .htaccess file. Note: to ensure the code below is not overwritten by WordPress, place it outside the # BEGIN WordPress and # END WordPress tags in the .htaccess file. WordPress can overwrite anything between these tags. 
+A second layer of protection can be added where scripts are generally not intended to be accessed by any user.
+One way to do that is to block those scripts using mod_rewrite in the .htaccess file.
+
+Note: to ensure the code below is not overwritten by WordPress, place it outside the # BEGIN WordPress
+and # END WordPress tags in the .htaccess file. WordPress can overwrite anything between these tags. 
 
 # Block the include-only files.
 <IfModule mod_rewrite.c>
