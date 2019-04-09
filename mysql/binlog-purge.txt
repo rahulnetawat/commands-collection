@@ -3,3 +3,6 @@ mysql> show binary logs;
 
 # Delete previous binary logs.(Here only mysql-bin.000020 log is not going to Purge)
 mysql> PURGE BINARY LOGS TO 'mysql-bin.000020'
+
+# Log purge as per day.
+mysql> PURGE BINARY LOGS BEFORE DATE_SUB( NOW( ), INTERVAL 1 DAY);
