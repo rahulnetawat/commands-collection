@@ -1,0 +1,7 @@
+# Run below commands to create new table via mysql commandline.
+
+# 1. mysql> show databases;
+# 2. mysql> use db_name;
+# 3. mysql> create table sample(abcd int);
+# 4. mysql> insert into sample (abcd) values (1); 
+# 5. mysql> select * from sample;
