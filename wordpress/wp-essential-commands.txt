@@ -1,0 +1,24 @@
+# Query to check home/siteurl from DB.
+SELECT * FROM wp_options WHERE option_name = 'home';
+SELECT * FROM wp_options WHERE option_name = 'siteurl';
+==============================================================================================================
+
+# Query to change URL from home/siteurl.
+UPDATE wp_options SET option_value="http://ip-domain" WHERE option_name = "home";
+UPDATE wp_options SET option_value="http://ip-domain" WHERE option_name = "siteurl";
+==============================================================================================================
+
+# Query to update the existing user Password.
+UPDATE `wp_users` SET `user_pass`= MD5('my-new-password') WHERE `user_login`='my-username';
+==============================================================================================================
+
+# Query to create new WP admin user and also set password.
+INSERT INTO `wp_users` (`user_login`, `user_pass`, `user_nicename`, `user_email`, `user_status`)
+VALUES ('my-username', MD5('my-password'), 'my-user-friendly-nicename', 'my-user-email-id', '0');
+
+INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) 
+VALUES (NULL, (Select max(id) FROM wp_users), 'wp_capabilities', 'a:1:{s:13:"administrator";s:1:"1";}');
+
+INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) 
+VALUES (NULL, (Select max(id) FROM wp_users), 'wp_user_level', '10');
+==============================================================================================================
