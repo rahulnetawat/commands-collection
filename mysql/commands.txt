@@ -5,3 +5,6 @@
 2. - GRANT ALL PRIVILEGES ON database_name.* TO 'username'@'server-ip';
 	OR
 3. - GRANT ALL PRIVILEGES ON database_name.* TO 'username'@'server-ip' IDENTIFIED by 'mysql-user-password';
+
+4.  Command to check server_id in MySQL.
+	mysql> select @@server_id;
