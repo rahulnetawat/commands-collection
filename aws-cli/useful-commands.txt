@@ -1,0 +1,21 @@
+
+1. aws --profile whatever ec2 describe-instances --query 'Reservations[].Instances[].[State.Name,InstanceType]'
+
+=================================================================================================================
+
+2. For loop to check all running instances with jq.
+
+for region in `aws --profile whatever ec2 describe-regions --output text | cut -f3`
+do
+     echo -e "\nListing Instances in region:'$region'..."
+     aws --profile nocwebdunia ec2 describe-instances --region $region | jq '.Reservations[] | ( .Instances[] | {state: .State.Name, name: .KeyName, type: .InstanceType, key: .KeyName})'
+done
+=================================================================================================================
+
+3. For loop without jq.
+
+for region in `aws --profile whatever ec2 describe-regions --output text | cut -f3`
+do
+     echo -e "\nListing Instances in region:'$region'..."
+     aws --profile nocwebdunia ec2 describe-instances --region $region
+done
