@@ -37,3 +37,34 @@ cmd ex: $ docker container exec -it 7d459c377556 /bin/bash
 10. # Rename the running Container.
         $ docker container rename <CONTAINER-ID> <DESIRED-NAME>
 cmd ex: $ docker container rename 7d459c377556 tiger-web
+
+11. # Restart Docker container.
+	$ docker container restart <CONTAINER-ID>
+cmd ex:	$ docker container restart 7d459c377556
+
+12. # Restart multiple docker container.
+	$ docker container restart <CONTAINER-ID-1> <CONTAINER-ID-2>
+cmd ex:	$ docker container restart 7d459c377556 08731adf0c00
+
+13. # Kill running container.
+	$ docker container kill <CONTAINER-ID>
+
+14. # Wait for attached container while exit status.
+	$ docker container wait <CONTAINER-ID>
+
+15. # Pause the running docker container.
+	$ docker container pause <CONTAINER-ID>
+
+16. # Unpause/Resume the running docker container from pause status.
+	$ docker container unpause <CONTAINER-ID>
+
+17. # Delete the unused stopped containers.
+	$ docker container prune (Asking for y/N while we run this command)
+	$ docker container prune -f (Forcefully delete all containers, without asking y/N)
+
+18. # To check running port for container.
+    # We can check with CONTAINER-ID or with NAMES. 
+    # IF we MAP any Port from Docker Engine.
+
+	$ docker container port <CONTAINER-ID>/<NAME>
+
