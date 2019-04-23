@@ -1,0 +1,39 @@
+1. # Docker exec command that can be used to connect to a container that is already running.
+	$ docker exec -it 16b1e633aa96 /bin/bash
+
+2. # Command to start docker container.
+	$ docker container start <container-id>
+
+3. # List current running docker containers.
+	$ docker container ls
+
+4. # Run container in detach mode.
+	$ docker container run -d -it ubuntu /bin/bash
+
+5. # Command to start/stop all containers from CONTAINER-ID.
+	$ docker container start|stop $(docker container ls -qa)
+
+=====================================================================================================================
+############################
+##	PORT MAPPING	  ##
+############################
+6. # Here we host the container web server via port mapping.(This is just an example for Web Server Port Mapping)
+        $ docker container run -d -p 3600:80 nginx
+
+7. # Specify Name to container.
+        $ docker container run -d -p 3600:80 --name my_web_server nginx
+
+8. # To verify that port is start listening run below command.
+        $ netstat -tnlp |grep 3600
+
+############################
+##      PORT MAPPING      ##
+############################
+=====================================================================================================================
+9. # Enter into running container with command argument.
+        $ docker container exec -it <CONTAINER-ID> <CMD>
+cmd ex: $ docker container exec -it 7d459c377556 /bin/bash
+
+10. # Rename the running Container.
+        $ docker container rename <CONTAINER-ID> <DESIRED-NAME>
+cmd ex: $ docker container rename 7d459c377556 tiger-web
