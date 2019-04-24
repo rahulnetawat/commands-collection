@@ -90,3 +90,7 @@ cmd ex:	$ docker container export 0032cf82d15a > my_ubuntu.tar
 23. # Import Image in docker.
 	$ docker image import <my-custom-image.tar> <CONTAINER-NAME>
 cmd ex:	$ docker image import my_ubuntu.tar import-test
+
+24. # Create image from running docker using commit command.
+	$ docker container commit --author <NAME-OF-AUTHOR> -m <TYPE-YOUR-MESSAGE> <CONTAINER-ID> <NEW-IMAGE-NAME>
+cmd ex:	$ docker container commit --author "Rahul Netawat" -m "this is a first test commit" 02455780425c my-test-image
