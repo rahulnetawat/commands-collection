@@ -78,3 +78,15 @@ cmd ex:	$ docker container restart 7d459c377556 08731adf0c00
 21. # Copy file/folder in docker container from local machine. 
 	$ docker container cp <file/folder> <container-id>:/<destination-dir>
 cmd ex:	$ docker container cp disk-check.py 86a51d3a65f7:/tmp
+
+22. # Export running docker container.
+	$ docker container export <container-id> > my-exported-container-name.tar
+	OR
+	$ docker container export <container-id> -o my-exported-container-name.tar
+
+cmd ex:	$ docker container export 0032cf82d15a > my_ubuntu.tar
+	$ docker container export 0032cf82d15a -o my_ubuntu.tar
+
+23. # Import Image in docker.
+	$ docker image import <my-custom-image.tar> <CONTAINER-NAME>
+cmd ex:	$ docker image import my_ubuntu.tar import-test
