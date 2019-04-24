@@ -70,7 +70,7 @@ cmd ex:	$ docker container restart 7d459c377556 08731adf0c00
 
 19. # Command to create only Docker container.
 	$ docker container create nginx sleep 60
- In above command we only create a container of Nginx which is only be created, not it running state.
+In above command we only create a container of Nginx which is only be created, and the container is not in running state.
 
 20. # To check recent changes in container.
 	$ docker container diff <CONTAINER-ID>
@@ -94,3 +94,30 @@ cmd ex:	$ docker image import my_ubuntu.tar import-test
 24. # Create image from running docker using commit command.
 	$ docker container commit --author <NAME-OF-AUTHOR> -m <TYPE-YOUR-MESSAGE> <CONTAINER-ID> <NEW-IMAGE-NAME>
 cmd ex:	$ docker container commit --author "Rahul Netawat" -m "this is a first test commit" 02455780425c my-test-image
+
+25. # Pulling image from https://hub.docker.com with TAG/Version.
+	$ docker pull image-name:image-version/tag
+cmd ex:	$ docker pull ubuntu:14.04
+
+26. # Tag a Docker image.
+	$ docker image tag <IMAGE-NAME> <NEW-IMAGE-TAG-NAME>
+cmd ex:	$ docker image tag my-test-image rahulnetawat-my-test-image	
+
+==================================================================================
+If you face docker login issue on ubuntu install below packages.
+#################################################################################
+Error: Error saving credentials: error storing credentials - err: exit status 1,
+out: `No such interface 'org.freedesktop.Secret.Collection'
+on object at path /org/freedesktop/secrets/collection/login`
+#################################################################################
+sudo apt install gnupg2 pass
+==================================================================================
+
+27. # Login Docker via command line to Push images to hub.docker.com
+	$ docker login
+Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
+Username: XXXXXXXXXX
+Password: **********
+
+28. # Push 
+	$ docker push rahulnetawat/my-image-name
