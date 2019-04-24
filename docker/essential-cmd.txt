@@ -68,3 +68,13 @@ cmd ex:	$ docker container restart 7d459c377556 08731adf0c00
 
 	$ docker container port <CONTAINER-ID>/<NAME>
 
+19. # Command to create only Docker container.
+	$ docker container create nginx sleep 60
+ In above command we only create a container of Nginx which is only be created, not it running state.
+
+20. # To check recent changes in container.
+	$ docker container diff <CONTAINER-ID>
+
+21. # Copy file/folder in docker container from local machine. 
+	$ docker container cp <file/folder> <container-id>:/<destination-dir>
+cmd ex:	$ docker container cp disk-check.py 86a51d3a65f7:/tmp
