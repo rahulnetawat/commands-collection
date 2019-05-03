@@ -1,0 +1,21 @@
+1. # Pull images of Wordpress and MySQL
+	$ docker pull wordpress
+	$ docker pull mysql
+
+2. # Start MySQL container with passing mysql root password. 
+	$ docker run --name mysqlwp -e MYSQL_ROOT_PASSWORD=redhat -d mysql
+
+3. # Crosscheck MySQL container is accessible or not.
+	$ docker ps
+	$ docker exec -it <CONTAINER-ID>
+
+4. # In Container Please grant Permission to access database.
+	$ mysql -uroot -p
+	$ mysql> use mysql;
+	$ mysql> ALTER user 'root'@'localhost' identified with mysql_native_password by 'redhat';
+	$ mysql> ALTER user 'root'@'%' identified with mysql_native_password by 'redhat';
+	$ mysql> exit;
+	$ exit (Exit from the container)
+
+5. # Starting and Linking Wordpress container.
+	$ docker run --name wordpress --link mysqlwp:mysql -p 80:80 -d wordpress
