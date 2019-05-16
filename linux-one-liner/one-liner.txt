@@ -1,3 +1,7 @@
+
+# Scanning for Abusive IP Addresses
+netstat -ntu | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -n
+
 # To check File/Folder permission in Octal Form
 $ stat -c '%A %a %n' <file-name/folder-name>
 
