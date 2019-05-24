@@ -1,10 +1,16 @@
 
-# Scanning for Abusive IP Addresses
-netstat -ntu | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -n
+# Check the world_writable.txt file for all of the world-writable files and directories. This command reveals locations where an attacker can store files on your system.
 
+$ find / \( -type f -o -type d \) -perm /o+w 2>/dev/null | egrep -v '/(proc|sys)' > world_writable.txt
+
+# Scanning for Abusive IP Addresses
+$ netstat -ntu | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -n
+
+=================================================================================================
 # To check File/Folder permission in Octal Form
 $ stat -c '%A %a %n' <file-name/folder-name>
 
+=================================================================================================
 ## Example Output:
 rahul@rahul:~$ stat -c '%A %a %n' asdf.jpg 
 -rw------- 600 asdf.jpg
