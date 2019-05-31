@@ -1,4 +1,8 @@
 
+# Extract data from required starting line no. to required ending line no.
+$ sed -n 1174882,1176438p /var/log/httpd/access.log > access.log
+
+
 # Check the world_writable.txt file for all of the world-writable files and directories. This command reveals locations where an attacker can store files on your system.
 
 $ find / \( -type f -o -type d \) -perm /o+w 2>/dev/null | egrep -v '/(proc|sys)' > world_writable.txt
