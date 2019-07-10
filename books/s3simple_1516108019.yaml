@@ -1,0 +1,12 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: >-
+  AWS CloudFormation Sample Template S3_Website_Bucket_With_Retain_On_Delete:
+  Sample template showing how to create a publicly accessible S3 bucket.
+Resources:
+  S3Bucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      AccessControl: PublicRead
+Outputs:
+  BucketName:
+    Value: !Ref 'S3Bucket'
