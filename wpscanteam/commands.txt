@@ -1,0 +1,5 @@
+
+1. Command to perform WP-SCAN from docker image. To download the image run below command.
+$ docker pull wpscanteam/wpscan
+ 
+$ docker run -it --rm wpscanteam/wpscan --url http://www.my-domain.com  --http-auth "my-username:my-password"

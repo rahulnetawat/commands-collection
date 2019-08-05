@@ -8,3 +8,6 @@
 
 4.  Command to check server_id in MySQL.
 	mysql> select @@server_id;
+
+5. Check Current Running Engine on Database.
+	mysql> SELECT TABLE_NAME, ENGINE FROM information_schema.TABLES where TABLE_SCHEMA = 'database-name'; 
