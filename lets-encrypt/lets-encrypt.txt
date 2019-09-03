@@ -1,5 +1,4 @@
 # Please replace domain name first.
-#
 
 1. # We create the SSL certificate.
 [bash]$ ./certbot-auto certonly --standalone -d my-domain.com
