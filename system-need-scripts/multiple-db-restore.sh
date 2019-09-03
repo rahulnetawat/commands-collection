@@ -2,8 +2,6 @@
 #title          :mysql-dbs-restore.sh
 #description    :This script will Script to restore multiple DB to mysql from .sql files;
 #		 asumes the dbname is the name of the .sql file
-#author         :Sergio Aguilar
-#date           :20120518
 #version        :0.0.1  
 #usage          :./mysql-dbs-restore.sh
 #notes          :       
