@@ -1,5 +1,5 @@
 
-1. aws --profile whatever ec2 describe-instances --query 'Reservations[].Instances[].[State.Name,InstanceType]'
+1. aws --profile digipace ec2 describe-instances --query 'Reservations[].Instances[].[State.Name,InstanceType]'
 
 =================================================================================================================
 
