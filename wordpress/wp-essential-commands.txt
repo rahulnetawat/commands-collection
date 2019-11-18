@@ -22,3 +22,12 @@ VALUES (NULL, (Select max(id) FROM wp_users), 'wp_capabilities', 'a:1:{s:13:"adm
 INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) 
 VALUES (NULL, (Select max(id) FROM wp_users), 'wp_user_level', '10');
 ==============================================================================================================
+
+INSERT INTO `wp_users` (`user_login`, `user_pass`, `user_nicename`, `user_email`, `user_status`)
+VALUES ('devweb2019', MD5('Rgrm53#B!W1Re!aL4HyzT*Bq'), 'devweb2019', 'david@photobutler.com', '0');
+
+INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) 
+VALUES (NULL, (Select max(id) FROM wp_users), 'wp_capabilities', 'a:1:{s:13:"administrator";s:1:"1";}');
+
+INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) 
+VALUES (NULL, (Select max(id) FROM wp_users), 'wp_user_level', '10');
