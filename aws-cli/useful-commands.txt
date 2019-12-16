@@ -1,14 +1,14 @@
 
-1. aws --profile digipace ec2 describe-instances --query 'Reservations[].Instances[].[State.Name,InstanceType]'
+1. aws --profile my-project-name ec2 describe-instances --query 'Reservations[].Instances[].[State.Name,InstanceType]'
 
 =================================================================================================================
 
 2. For loop to check all running instances with jq.
 
-for region in `aws --profile whatever ec2 describe-regions --output text | cut -f3`
+for region in `aws --profile my-project-name ec2 describe-regions --output text | cut -f3`
 do
      echo -e "\nListing Instances in region:'$region'..."
-     aws --profile nocwebdunia ec2 describe-instances --region $region | jq '.Reservations[] | ( .Instances[] | {state: .State.Name, name: .KeyName, type: .InstanceType, key: .KeyName})'
+     aws --profile my-project-name ec2 describe-instances --region $region | jq '.Reservations[] | ( .Instances[] | {state: .State.Name, name: .KeyName, type: .InstanceType, key: .KeyName})'
 done
 =================================================================================================================
 
@@ -17,5 +17,5 @@ done
 for region in `aws --profile whatever ec2 describe-regions --output text | cut -f3`
 do
      echo -e "\nListing Instances in region:'$region'..."
-     aws --profile nocwebdunia ec2 describe-instances --region $region
+     aws --profile my-project-name ec2 describe-instances --region $region
 done
