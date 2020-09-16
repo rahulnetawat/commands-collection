@@ -7,7 +7,7 @@ for f in files:
 	f1=f.replace("-","_")
 	os.rename(f, f1)
 print(os.listdir(path))
-root@webdunia-OptiPlex-3010:/home/webdunia/task/nov_db# cat generate_csv.py 
+
 import mysql.connector
 import re, os
 import pandas as pd
