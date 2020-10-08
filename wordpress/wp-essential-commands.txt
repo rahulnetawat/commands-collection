@@ -1,6 +1,6 @@
 # Query to check home/siteurl from DB.
-SELECT * FROM wp_options WHERE option_name = 'home';
-SELECT * FROM wp_options WHERE option_name = 'siteurl';
+SELECT * FROM `wp_options` WHERE `option_name` = 'home';
+SELECT * FROM `wp_options` WHERE `option_name` = 'siteurl';
 ==============================================================================================================
 
 # Query to change URL from home/siteurl.
