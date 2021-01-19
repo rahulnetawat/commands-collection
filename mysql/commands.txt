@@ -10,4 +10,8 @@
 	mysql> select @@server_id;
 
 5. Check Current Running Engine on Database.
-	mysql> SELECT TABLE_NAME, ENGINE FROM information_schema.TABLES where TABLE_SCHEMA = 'database-name'; 
+	mysql> SELECT TABLE_NAME, ENGINE FROM information_schema.TABLES where TABLE_SCHEMA = 'database-name';
+
+6. Granting user in MySQL 8.
+	mysql> CREATE USER 'mysql-user'@'%' IDENTIFIED BY 'user-password';
+	mysql> GRANT ALL PRIVILEGES ON *.* TO 'mysql-user'@'%' WITH GRANT OPTION;
