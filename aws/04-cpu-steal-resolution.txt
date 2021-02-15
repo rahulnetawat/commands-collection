@@ -1,0 +1,13 @@
+Your instance is a t3.medium, meaning it is a burstable instance so it depends on the workload, some options are:
+
+1. Stop the instance, create an AMI (just in case) and resize the instance so that the baseline performance is higher.
+
+For the t3.medium the baseline performance is 20% utilization.
+
+2. Also stop the instance, create AMI (just in case), and change the instance type to a non-burstable instance type, so basically an instance which has sufficient vCPU/Memory for your application which isn't a "T" type instance
+
+all T instances are burstable and looking at the last 24 hours of the instance's performance you might require a somewhat higher, stable performance.
+
+
+Please find below the link to the document on how baseline and bursting works:
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-credits-baseline-concepts.html
