@@ -1,2 +1,2 @@
 # commands-collection
-Some useful one liner commands.
+Some useful command collection which I used in my Daily life for server tasks.
