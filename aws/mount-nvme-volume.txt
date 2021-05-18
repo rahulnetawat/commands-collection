@@ -1,0 +1,7 @@
+## Error While mounting additional NVMe drive.
+$ sudo mount /dev/nvme2n1p2 /mnt/fix/
+mount: wrong fs type, bad option, bad superblock on /dev/nvme2n1p2,
+missing codepage or helper program, or other error
+
+# Command to mount drive.
+sudo mount -o nouuid /dev/nvme2n1p2 /mnt/fix/
