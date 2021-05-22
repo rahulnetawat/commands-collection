@@ -1,6 +1,6 @@
 #!/bin/bash
 DBHOST=localhost
-DBUSER='mysql-user'
+DBUSER='root'
 DBPASS='mysql-password'
 
 mysql -u $DBUSER -h $DBHOST -p$DBPASS -e 'show databases'
