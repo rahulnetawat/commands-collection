@@ -64,3 +64,7 @@ find / -type f -name *.tar.gz -exec ls -l {} \;
 ==================================================================
 # Find out all the jpg images and archive it.
 find /home/rahul/Pictures/ -name *.jpg -type f -print | xargs tar -cvzf images.tar.gz
+
+##################################################################
+# Command to server using pem key.
+scp -v -i server-pem.pem file-to-copy.zip centos@1.2.3.4:/home/centos 
