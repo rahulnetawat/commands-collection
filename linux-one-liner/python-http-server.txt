@@ -1,2 +1,5 @@
 # Use Python SimpleHTTPServer with Custom Port
+
 sudo python -m SimpleHTTPServer 8001
+
+# NOTE: You can replace port 8001 with your desired port.
