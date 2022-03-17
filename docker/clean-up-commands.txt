@@ -2,6 +2,14 @@
 Reference Link:
 https://linuxize.com/post/how-to-remove-docker-images-containers-volumes-and-networks/#removing-all-unused-objects
 
+List only dangling images:
+$ docker images -f "dangling=true"
+
+Remove only dangling images:
+$ docker rmi $(docker images -f "dangling=true" -qa)
+
+------------------------------------------------------------------------
+
 How To Remove Docker Containers, Images, Volumes, and Networks
 
 ------------------------------------------------------------------------
